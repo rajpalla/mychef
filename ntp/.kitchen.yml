@@ -1,0 +1,34 @@
+---
+driver:
+  name: vagrant
+  network: 
+    -  ["private_network", {ip: "192.168.33.55" }]
+
+provisioner:
+  name: chef_zero
+  # You may wish to disable always updating cookbooks in CI or other testing environments.
+  # For example:
+  #   always_update_cookbooks: <%= !ENV['CI'] %>
+  always_update_cookbooks: true
+
+verifier:
+  name: inspec
+
+platforms:
+  #- name: ubuntu-16.04
+   ##  box: ubuntu/xenial64
+  #- name: ubuntu-14.04
+   # driver:
+    #  box: ubuntu/trusty64
+  - name: centos-7.2
+    driver:
+      box: centos/7
+
+suites:
+  - name: default
+    run_list:
+      - recipe[ntp::default]
+    verifier:
+      inspec_tests:
+        - test/smoke/default
+    attributes:
