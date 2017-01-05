@@ -1,0 +1,15 @@
+lamp 
+lemp 
+lamp-wordpress
+lemp-wordpress
+hadoop
+tomcat7
+tomcat8allinone,jenkins.war,benifits.war
+cyclos
+cyclos(postgres)
+openmrs
+opencart
+chef-docker
+ntp server
+nagios
+scenarios
